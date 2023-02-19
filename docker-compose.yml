@@ -1,0 +1,18 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: hoxtygen
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: customer
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - 5432:5432
+
+    restart: unless-stopped
+
+volumes:
+  db:
